@@ -15,4 +15,6 @@ COPY Gemfile* ./
 RUN bundle install
 COPY . .
 
-CMD rails server -b 0.0.0.0
+CMD bash -c "rm -f /tmp/puma.pid && rails server -b 0.0.0.0 -P /tmp/puma.pid"
+
+
