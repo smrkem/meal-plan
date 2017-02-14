@@ -1,12 +1,4 @@
-<% if @errors.present? %>
-  <div class="errors">
-    <ul>
-      <%= @errors.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "shared/errors" %>
 
 <%= form_for @meal_plan do |form| %>
   <%= form.hidden_field :start_date %>
@@ -22,10 +14,10 @@
         <%= meal_fields.label :recipe_id %>
         <%= meal_fields.select :recipe_id, current_user.recipe_options %>
       </div>
-
-      <div class="actions">
-        <%= form.submit %>
-      </div>
     <% end %>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>
